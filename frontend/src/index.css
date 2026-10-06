@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/*
+ * LIGHT THEME
+ * The site was originally authored against a dark palette, so the neutral
+ * Tailwind tokens are remapped here once instead of touching every utility
+ * class in every component. Background shades become light surfaces, text
+ * shades become dark text, and the gold accent stays gold.
+ * Anything that must stay dark (text on gold buttons, modal backdrops, photo
+ * overlays) uses explicit arbitrary values such as text-[#ffffff] / bg-[#0f172a].
+ */
+@theme {
+  /* Neutrals: light surfaces */
+  --color-white: #0f172a;
+  --color-slate-900: #ffffff;
+  --color-slate-800: #f8fafc;
+  --color-slate-700: #f1f5f9;
+
+  /* Neutrals: dark text */
+  --color-slate-100: #0f172a;
+  --color-slate-200: #1e293b;
+  --color-slate-300: #334155;
+  --color-slate-400: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-950: #1c1917;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --color-bg-dark: #ffffff;
+    --color-card-dark: #f8fafc;
+    --color-card-border: rgba(15, 23, 42, 0.1);
+    --color-gold: #d4af37;
+    --color-gold-hover: #b8860b;
+    --color-gold-muted: rgba(212, 175, 55, 0.15);
+  }
+
+  body {
+    background-color: var(--color-bg-dark);
+    color: #334155;
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.glass-card {
+  background: #ffffff;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b45309 0%, #d4af37 60%, #92400e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #fbbf24 0%, #d4af37 100%);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
